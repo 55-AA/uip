@@ -62,7 +62,7 @@
 
 #include "uip.h"
 
-static int drop = 0;
+/*static int drop = 0;*/
 static int fd;
 
 
@@ -91,7 +91,7 @@ tapdev_init(void)
 #endif /* Linux */
 
   snprintf(buf, sizeof(buf), "ifconfig tap0 inet %d.%d.%d.%d",
-	   UIP_DRIPADDR0, UIP_DRIPADDR1, UIP_DRIPADDR2, UIP_DRIPADDR3);
+     UIP_DRIPADDR0, UIP_DRIPADDR1, UIP_DRIPADDR2, UIP_DRIPADDR3);
   system(buf);
 
 }
@@ -100,7 +100,7 @@ unsigned int
 tapdev_read(void)
 {
   fd_set fdset;
-  struct timeval tv, now;
+  struct timeval tv;
   int ret;
   
   tv.tv_sec = 0;
